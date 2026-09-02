@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RESTOCORE — Next-Gen Restaurant Management Operating System</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="dark">
+
+  <div class="ambient-glow glow-top-left" aria-hidden="true"></div>
+  <div class="ambient-glow glow-bottom-right" aria-hidden="true"></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <div id="view-landing" class="app-view active-view">
+    <header class="landing-header">
+      <div class="brand-cluster">
+        <div class="brand-logo-cube">
+          <div class="cube-face front">R</div>
+          <div class="cube-face back">C</div>
+          <div class="cube-face right"></div>
+          <div class="cube-face left"></div>
+          <div class="cube-face top"></div>
+          <div class="cube-face bottom"></div>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">RESTOCORE</span>
+          <span class="brand-badge">SaaS Enterprise v3.2</span>
+        </div>
+      </div>
+      <nav class="landing-nav">
+        <a href="#features">Architecture</a>
+        <a href="#pos-preview">POS & KDS</a>
+        <a href="#costing">Recipe BOM</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+      <div class="landing-header-actions">
+        <button class="btn btn-ghost" id="btn-goto-menu">Smart Customer Menu</button>
+        <button class="btn btn-primary btn-glow" id="btn-launch-terminal">
+          <span>Launch System Terminal</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <section class="landing-hero">
+      <div class="hero-badge-pill">
+        <span class="status-dot online"></span> Intelligent F&amp;B Operating Platform
+      </div>
+      <h1 class="hero-headline">
+        Run Your Restaurant <br />
+        <span class="gradient-text">Like a Machine.</span>
+      </h1>
+      <p class="hero-subheadline">
+        Unified real-time point of sale, dual KDS/Barista telemetries, automated bill of materials inventory deduction, 
+        and high-margin food costing analytics engineered for hyper-growth venues.
+      </p>
+      
+      <div class="hero-cta-group">
+        <button class="btn btn-primary btn-xl btn-magnetic" id="btn-hero-explore">
+          <span>Enter Live Workspace</span>
+          <div class="btn-ripple"></div>
+        </button>
+        <button class="btn btn-secondary btn-xl" id="btn-open-remote-kiosk">
+          <span>Customer Remote Ordering Demo</span>
+        </button>
+      </div>
+
+      <div class="hero-3d-scene">
+        <div class="mockup-tilt-stage" id="mockup-tilt-stage">
+          <div class="mockup-glass-dashboard">
+            <div class="mockup-top-bar">
+              <div class="window-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-amber"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="mockup-title">Maison 27 — Central Node (New Cairo Flagship)</div>
+              <div class="mockup-actions">
+                <span class="latency-pill"><span class="pulse-indicator"></span> 18ms Active Sync</span>
+              </div>
+            </div>
+            <div class="mockup-grid">
+              <div class="mockup-card glass-subcard">
+                <div class="subcard-metric-label">Today's Gross Net</div>
+                <div class="subcard-metric-val">EGP 84,920.00</div>
+                <div class="subcard-metric-trend text-emerald">+24.8% vs last week</div>
+              </div>
+              <div class="mockup-card glass-subcard">
+                <div class="subcard-metric-label">Active Kitchen Tickets</div>
+                <div class="subcard-metric-val">14 Orders</div>
+                <div class="subcard-metric-trend text-cyan">Avg prep: 8.4 mins</div>
+              </div>
+              <div class="mockup-card glass-subcard">
+                <div class="subcard-metric-label">Food Cost Margin</div>
+                <div class="subcard-metric-val">28.4%</div>
+                <div class="subcard-metric-trend text-emerald">Target: &lt; 30.0%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="pricing-section">
+      <div class="section-badge">COMMERCIAL PLANS</div>
+      <h2 class="section-title">Transparent Architecture Tiers</h2>
+      <p class="section-sub">Deploy locally on hardware or sync globally across franchise clouds.</p>
+      
+      <div class="pricing-grid">
+        <div class="pricing-card glass-panel">
+          <div class="pricing-tier-tag">Starter Boutique</div>
+          <div class="pricing-value"><span class="curr">$</span>149<span class="term">/mo</span></div>
+          <p class="pricing-desc">For single boutique cafes, bakeries, or artisanal coffee roasters.</p>
+          <ul class="pricing-perks">
+            <li>✓ 1 Core POS &amp; Cash Drawer</li>
+            <li>✓ Barista Display Hub</li>
+            <li>✓ Smart Digital QR Menu</li>
+            <li>✓ Inventory Re-ordering Alerts</li>
+          </ul>
+          <button class="btn btn-secondary w-full select-plan-btn" data-plan="Starter">Deploy Boutique</button>
+        </div>
+
+        <div class="pricing-card glass-panel featured-pricing">
+          <div class="pricing-flag">MOST POPULAR</div>
+          <div class="pricing-tier-tag">Professional Flagship</div>
+          <div class="pricing-value"><span class="curr">$</span>389<span class="term">/mo</span></div>
+          <p class="pricing-desc">For high-turnover casual dining, bistros, and full-service dining establishments.</p>
+          <ul class="pricing-perks">
+            <li>✓ Unlimited POS &amp; Waiter Tablets</li>
+            <li>✓ Dual KDS (Hot Kitchen + Barista)</li>
+            <li>✓ Sub-gram BOM Recipe Costing</li>
+            <li>✓ Biometric Shift &amp; Net Salary Engine</li>
+            <li>✓ Table Floor Visual Matrix</li>
+          </ul>
+          <button class="btn btn-primary w-full select-plan-btn" data-plan="Pro">Deploy Flagship</button>
+        </div>
+
+        <div class="pricing-card glass-panel">
+          <div class="pricing-tier-tag">Multi-Branch Enterprise</div>
+          <div class="pricing-value"><span class="curr">$</span>890<span class="term">/mo</span></div>
+          <p class="pricing-desc">Full multi-branch franchise synchronization with central commissary control.</p>
+          <ul class="pricing-perks">
+            <li>✓ Multi-Branch Inventory Routing</li>
+            <li>✓ Central Commissary Supplier Hub</li>
+            <li>✓ Unlimited Staff Tier Roles</li>
+            <li>✓ Custom ERP &amp; Fiscal Ledger Hooks</li>
+          </ul>
+          <button class="btn btn-secondary w-full select-plan-btn" data-plan="Enterprise">Deploy Enterprise</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="view-app-shell" class="app-shell hidden">
+    
+    <aside class="app-sidebar" id="app-sidebar">
+      <div class="sidebar-brand-box">
+        <div class="brand-cluster mini">
+          <div class="brand-logo-cube mini-cube">
+            <div class="cube-face front">R</div>
+            <div class="cube-face back">C</div>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">RESTOCORE</span>
+            <span class="branch-label" id="current-branch-tag">Branch: New Cairo</span>
+          </div>
+        </div>
+        <button class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Toggle Navigation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+      </div>
+
+      <div class="sidebar-nav-container">
+        <div class="nav-section-label">COMMAND &amp; CONTROL</div>
+        <button class="nav-item-btn active" data-target="dash">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span class="nav-label">Dashboard Telemetry</span>
+        </button>
+        <button class="nav-item-btn" data-target="pos">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          <span class="nav-label">POS Terminal</span>
+          <span class="nav-badge" id="pos-active-count">0</span>
+        </button>
+        <button class="nav-item-btn" data-target="kds">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 13.87A8 8 0 0 1 17.91 4.08M18 10.13A8 8 0 0 1 6.09 19.92"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          <span class="nav-label">Kitchen Display (KDS)</span>
+          <span class="nav-badge alert" id="kds-pending-count">3</span>
+        </button>
+        <button class="nav-item-btn" data-target="barista">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+          <span class="nav-label">Barista Bar Display</span>
+          <span class="nav-badge" id="barista-pending-count">2</span>
+        </button>
+        <button class="nav-item-btn" data-target="tables">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"></rect><circle cx="9" cy="9" r="2"></circle><circle cx="15" cy="15" r="2"></circle></svg>
+          <span class="nav-label">Table Grid Plan</span>
+        </button>
+
+        <div class="nav-section-label">BACK OFFICE &amp; LEDGER</div>
+        <button class="nav-item-btn" data-target="inventory">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          <span class="nav-label">Raw Inventory Units</span>
+        </button>
+        <button class="nav-item-btn" data-target="recipes">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          <span class="nav-label">Recipe Costing &amp; BOM</span>
+        </button>
+        <button class="nav-item-btn" data-target="suppliers">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+          <span class="nav-label">Suppliers &amp; Debt</span>
+        </button>
+        <button class="nav-item-btn" data-target="staff">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span class="nav-label">Staff &amp; Payroll Engine</span>
+        </button>
+        <button class="nav-item-btn" data-target="reports">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          <span class="nav-label">Analytics &amp; Audits</span>
+        </button>
+        <button class="nav-item-btn" data-target="settings">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span class="nav-label">System Parameters</span>
+        </button>
+      </div>
+
+      <div class="sidebar-user-footer">
+        <div class="user-avatar-hex">MK</div>
+        <div class="user-meta">
+          <span class="user-name">M. Kamel</span>
+          <span class="user-role-badge" id="current-user-role">OWNER / ROOT</span>
+        </div>
+        <button class="logout-btn" id="btn-back-to-landing" title="Exit to Landing">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        </button>
+      </div>
+    </aside>
+
+    <main class="app-workspace">
+      
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button class="mobile-menu-trigger" id="mobile-menu-trigger">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="search-box-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="global-search-input" placeholder="Quick find product, order #, table, staff..." />
+            <kbd class="shortcut-tag">⌘K</kbd>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="branch-selector-dropdown">
+            <select id="branch-select" class="select-styled">
+              <option value="b1">Branch 1: New Cairo 5th Settlement</option>
+              <option value="b2">Branch 2: Sheikh Zayed Arkan</option>
+              <option value="b3">Branch 3: Alexandria Corniche</option>
+            </select>
+          </div>
+
+          <div class="role-selector-box">
+            <select id="role-select" class="select-styled role-tint">
+              <option value="OWNER">Role: Owner / Admin</option>
+              <option value="CASHIER">Role: Cashier POS</option>
+              <option value="CHEF">Role: Kitchen Chef</option>
+              <option value="BARISTA">Role: Head Barista</option>
+              <option value="WAITER">Role: Floor Server</option>
+            </select>
+          </div>
+
+          <div class="notification-wrapper">
+            <button class="icon-round-btn" id="btn-notifications" aria-label="Notifications">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+              <span class="notification-pip" id="notif-pip"></span>
+            </button>
+            <div class="notifications-drawer glass-panel hidden" id="notifications-drawer">
+              <div class="notif-header">
+                <h6>Event Audit Feed</h6>
+                <button class="btn-micro" id="btn-clear-notifs">Clear All</button>
+              </div>
+              <div class="notif-list" id="notif-list-items">
+                </div>
+            </div>
+          </div>
+
+          <div class="currency-tag" id="active-currency-pill">CURRENCY: EGP (14% VAT)</div>
+        </div>
+      </header>
+
+      <div class="content-scroll-stage">
+
+        <section id="pane-dash" class="module-pane active-pane">
+          <div class="pane-header-row">
+            <div>
+              <h2 class="pane-title">Real-Time Venue Telemetry</h2>
+              <p class="pane-subtitle">Live consolidated metrics from terminal sales, ingredient depletion, and table cycles.</p>
+            </div>
+            <div class="header-tools">
+              <button class="btn btn-secondary" onclick="RestoStore.seedSampleBatch()">Simulate Peak Traffic</button>
+              <button class="btn btn-primary" onclick="window.print()">Export Audit PDF</button>
+            </div>
+          </div>
+
+          <div class="metrics-grid">
+            <div class="metric-card glass-panel tilt-card">
+              <div class="card-glow-reflection"></div>
+              <div class="metric-top">
+                <span class="metric-title">TODAY'S GROSS SALES</span>
+                <span class="metric-icon-badge text-emerald">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </span>
+              </div>
+              <div class="metric-number counter" id="stat-revenue">EGP 68,430.00</div>
+              <div class="metric-meta text-emerald">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                +19.4% vs Yesterday
+              </div>
+            </div>
+
+            <div class="metric-card glass-panel tilt-card">
+              <div class="card-glow-reflection"></div>
+              <div class="metric-top">
+                <span class="metric-title">TOTAL COMPLETED ORDERS</span>
+                <span class="metric-icon-badge text-cyan">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+              </div>
+              <div class="metric-number counter" id="stat-orders-count">314</div>
+              <div class="metric-meta text-cyan">
+                <span>Avg. Ticket: </span>
+                <span class="bold" id="stat-avg-ticket">EGP 217.90</span>
+              </div>
+            </div>
+
+            <div class="metric-card glass-panel tilt-card">
+              <div class="card-glow-reflection"></div>
+              <div class="metric-top">
+                <span class="metric-title">REALIZED FOOD COST</span>
+                <span class="metric-icon-badge text-amber">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                </span>
+              </div>
+              <div class="metric-number" id="stat-food-cost">27.6%</div>
+              <div class="metric-meta text-amber">Healthy (Target &lt; 30%)</div>
+            </div>
+
+            <div class="metric-card glass-panel tilt-card">
+              <div class="card-glow-reflection"></div>
+              <div class="metric-top">
+                <span class="metric-title">TABLE OCCUPANCY</span>
+                <span class="metric-icon-badge text-violet">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                </span>
+              </div>
+              <div class="metric-number" id="stat-active-tables">9 / 12 Active</div>
+              <div class="metric-meta text-violet">75% Seating Capacity</div>
+            </div>
+          </div>
+
+          <div class="dashboard-charts-layout">
+            <div class="chart-box glass-panel flex-2">
+              <div class="chart-header">
+                <div>
+                  <h3 class="box-title">Hourly Revenue Velocity</h3>
+                  <span class="box-subtitle">Real-time incoming orders by the hour</span>
+                </div>
+                <div class="time-filter-pills">
+                  <button class="pill-btn active">Today</button>
+                  <button class="pill-btn">7D</button>
+                  <button class="pill-btn">30D</button>
+                </div>
+              </div>
+              <div class="svg-chart-container" id="revenue-chart-stage">
+                </div>
+            </div>
+
+            <div class="chart-box glass-panel flex-1">
+              <div class="chart-header">
+                <div>
+                  <h3 class="box-title">Sales by Category</h3>
+                  <span class="box-subtitle">Volume mix</span>
+                </div>
+              </div>
+              <div class="category-breakdown-list" id="category-progress-bars">
+                </div>
+            </div>
+          </div>
+
+          <div class="dashboard-bottom-grid">
+            <div class="glass-panel alerts-box">
+              <div class="box-header-split">
+                <h3 class="box-title">Inventory Risk Monitor (BOM Depletion)</h3>
+                <button class="btn-micro" onclick="AppNavigation.switchTab('inventory')">Manage Inventory</button>
+              </div>
+              <div class="table-container-micro">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Ingredient</th>
+                      <th>Remaining</th>
+                      <th>Min Par</th>
+                      <th>Status</th>
+                      <th>Supplier Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="dash-low-stock-body">
+                    </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="pane-pos" class="module-pane">
+          <div class="pos-master-grid">
+            
+            <div class="pos-catalog-side">
+              <div class="pos-catalog-header glass-panel">
+                <div class="category-scroll-ribbon" id="pos-category-tabs">
+                  <button class="cat-pill active" data-cat="ALL">All Items</button>
+                  <button class="cat-pill" data-cat="Burgers">Burgers</button>
+                  <button class="cat-pill" data-cat="Pizza">Stone Pizza</button>
+                  <button class="cat-pill" data-cat="Pasta">Handmade Pasta</button>
+                  <button class="cat-pill" data-cat="Coffee">Specialty Coffee</button>
+                  <button class="cat-pill" data-cat="Cold Drinks">Cold Pressed</button>
+                  <button class="cat-pill" data-cat="Desserts">Pastry &amp; Desserts</button>
+                </div>
+                <div class="pos-search-line">
+                  <input type="text" id="pos-search-box" placeholder="Search menu item or barcode..." />
+                  <div class="order-type-switch" id="pos-order-type-switch">
+                    <button class="type-btn active" data-type="Dine-In">Dine-In</button>
+                    <button class="type-btn" data-type="Takeaway">Takeaway</button>
+                    <button class="type-btn" data-type="Delivery">Delivery</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pos-products-grid" id="pos-products-grid">
+                </div>
+            </div>
+
+            <div class="pos-ticket-side glass-panel">
+              <div class="ticket-header">
+                <div class="ticket-title-cluster">
+                  <span class="ticket-id" id="cart-ticket-num">ORDER #1043</span>
+                  <div class="table-selector-pill">
+                    <label for="pos-table-select">Table:</label>
+                    <select id="pos-table-select" class="minimal-select">
+                      <option value="T-01">T-01 (Window)</option>
+                      <option value="T-02">T-02 (Center)</option>
+                      <option value="T-03">T-03 (Booth)</option>
+                      <option value="T-04">T-04 (VIP Corner)</option>
+                      <option value="T-05">T-05 (Outdoor)</option>
+                      <option value="T-TA">Takeaway / Bar</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="ticket-actions">
+                  <button class="btn-micro danger" id="btn-clear-cart" title="Clear Order">Clear</button>
+                  <button class="btn-micro" id="btn-hold-cart" title="Hold Order">Hold</button>
+                </div>
+              </div>
+
+              <div class="ticket-customer-row">
+                <input type="text" id="ticket-guest-name" placeholder="Guest / Customer Name (Optional)" />
+              </div>
+
+              <div class="ticket-items-container" id="pos-cart-items">
+                <div class="empty-cart-state">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                  <p>No items in ticket. Select items from menu catalog.</p>
+                </div>
+              </div>
+
+              <div class="ticket-math-ledger">
+                <div class="math-row">
+                  <span>Subtotal</span>
+                  <span id="pos-subtotal">EGP 0.00</span>
+                </div>
+                <div class="math-row">
+                  <span>VAT (14%)</span>
+                  <span id="pos-tax">EGP 0.00</span>
+                </div>
+                <div class="math-row">
+                  <span>Service Charge (12%)</span>
+                  <span id="pos-service">EGP 0.00</span>
+                </div>
+                <div class="math-row discount-row" id="pos-discount-line">
+                  <span>Special Discount (<span id="discount-pct-label">0%</span>)</span>
+                  <span id="pos-discount">- EGP 0.00</span>
+                </div>
+                <div class="math-divider"></div>
+                <div class="math-row total-row">
+                  <span class="total-label">TOTAL PAYABLE</span>
+                  <span class="total-value" id="pos-grand-total">EGP 0.00</span>
+                </div>
+              </div>
+
+              <div class="ticket-footer-buttons">
+                <button class="btn btn-secondary btn-discount-pop" id="btn-open-discount-modal">Apply Discount</button>
+                <button class="btn btn-primary btn-settle-order btn-glow" id="btn-checkout-order">
+                  <span>Pay &amp; Transmit to Kitchen</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section id="pane-kds" class="module-pane">
+          <div class="kds-screen-header">
+            <div>
+              <h2 class="pane-title">Culinary Production Display (KDS)</h2>
+              <p class="pane-subtitle">Live orders routed to Hot &amp; Cold Kitchen stations.</p>
+            </div>
+            <div class="kds-filters">
+              <button class="btn-filter active" data-kds-filter="ALL">All Stations</button>
+              <button class="btn-filter" data-kds-filter="GRILL">Grill &amp; Oven</button>
+              <button class="btn-filter" data-kds-filter="PASTA">Pasta &amp; Sauté</button>
+              <button class="btn-filter" data-kds-filter="URGENT">Urgent Priority</button>
+            </div>
+          </div>
+
+          <div class="kds-tickets-board" id="kds-board">
+            </div>
+        </section>
+
+        <section id="pane-barista" class="module-pane">
+          <div class="kds-screen-header">
+            <div>
+              <h2 class="pane-title">Barista &amp; Beverage Station</h2>
+              <p class="pane-subtitle">Artisan coffee, cold brews, and mocktail modifiers.</p>
+            </div>
+            <div class="station-meta-badge">
+              <span class="status-dot online"></span> Espresso Machine: Dual Boiler 93.5°C
+            </div>
+          </div>
+
+          <div class="kds-tickets-board" id="barista-board">
+            </div>
+        </section>
+
+        <section id="pane-tables" class="module-pane">
+          <div class="pane-header-row">
+            <div>
+              <h2 class="pane-title">Dining Floor Map Matrix</h2>
+              <p class="pane-subtitle">Real-time table occupancy, guest counts, and open balance tracking.</p>
+            </div>
+            <div class="table-legend-pills">
+              <span class="legend-pill available"><span class="pip"></span> Available</span>
+              <span class="legend-pill occupied"><span class="pip"></span> Occupied</span>
+              <span class="legend-pill reserved"><span class="pip"></span> Reserved</span>
+              <span class="legend-pill cleaning"><span class="pip"></span> Cleaning</span>
+            </div>
+          </div>
+
+          <div class="floor-plan-container glass-panel">
+            <div class="floor-grid-visual" id="floor-tables-grid">
+              </div>
+          </div>
+        </section>
+
+        <section id="pane-inventory" class="module-pane">
+          <div class="pane-header-row">
+            <div>
+              <h2 class="pane-title">Raw Stock Materials &amp; Depletion Ledger</h2>
+              <p class="pane-subtitle">Per-gram and per-unit tracking connected to bill-of-materials consumption.</p>
+            </div>
+            <div class="header-tools">
+              <button class="btn btn-secondary" id="btn-add-stock-modal">Receive PO Shipment</button>
+              <button class="btn btn-primary" id="btn-audit-stock">Run Spot Variance Audit</button>
+            </div>
+          </div>
+
+          <div class="glass-panel table-view-card">
+            <div class="table-controls-bar">
+              <input type="text" id="inventory-filter-input" placeholder="Filter ingredients, batch ID, or vendor..." />
+              <div class="stats-mini-ribbon">
+                <span>Total Items: <b id="inv-total-count">18</b></span>
+                <span>Critical Par Alerts: <b class="text-rose" id="inv-alert-count">2</b></span>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Item / Material</th>
+                    <th>Category</th>
+                    <th>Current Balance</th>
+                    <th>Unit</th>
+                    <th>Min Par</th>
+                    <th>Unit Cost</th>
+                    <th>Supplier Vendor</th>
+                    <th>Batch Expiry</th>
+                    <th>Health Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="inventory-table-body">
+                  </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="pane-recipes" class="module-pane">
+          <div class="pane-header-row">
+            <div>
+              <h2 class="pane-title">Recipe Costing &amp; Bill of Materials (BOM)</h2>
+              <p class="pane-subtitle">Sub-gram accuracy food cost calculation, menu engineering, and real-time gross margin %.</p>
+            </div>
+            <button class="btn btn-primary" id="btn-create-recipe">+ Design New Recipe</button>
+          </div>
+
+          <div class="recipe-engine-grid">
+            <div class="recipe-list-sidebar glass-panel">
+              <h3 class="box-title">Standardized Menu Recipes</h3>
+              <div class="recipe-selector-list" id="recipe-nav-list">
+                </div>
+            </div>
+
+            <div class="recipe-details-card glass-panel" id="recipe-details-card">
+              </div>
+          </div>
+        </section>
+
+        <section id="pane-suppliers" class="module-pane">
+          <div class="pane-header-row">
+            <div>
+              <h2 class="pane-title">Suppliers &amp; Accounts Payable</h2>
+              <p class="pane-subtitle">Vendor supply contracts, procurement balances, and invoicing.</p>
+            </div>
+            <button class="btn btn-primary" id="btn-add-supplier">+ Onboard Supplier</button>
+          </div>
+
+          <div class="suppliers-grid" id="suppliers-card-grid">
+            </div>
+        </section>
+
+        <section id="pane-staff" class="module-pane">
+          <div class="pane-header-row">
+            <div>
+              <h2 class="pane-title">Human Capital, Shifts &amp; Net Salary Engine</h2>
+              <p class="pane-subtitle">Base + Overtime + Bonuses - Deductions - Loans = Net Disbursed</p>
+            </div>
+            <button class="btn btn-primary" id="btn-quick-checkin">Biometric Clock In/Out</button>
+          </div>
+
+          <div class="glass-panel table-view-card">
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Employee Name</th>
+                    <th>Role &amp; Station</th>
+                    <th>Shift Status</th>
+                    <th>Base Salary</th>
+                    <th>Overtime</th>
+                    <th>Bonus</th>
+                    <th>Deductions</th>
+                    <th>NET DISBURSED</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="staff-payroll-body">
+                  </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="pane-reports" class="module-pane">
+          <div class="pane-header-row">
+            <div>
+              <h2 class="pane-title">Consolidated Audits &amp; Financial Ledger</h2>
+              <p class="pane-subtitle">Exportable P&amp;L statements, waste logs, and product performance indexes.</p>
+            </div>
+            <div class="header-tools">
+              <button class="btn btn-secondary" onclick="RestoStore.downloadCSVReport()">Download CSV Ledger</button>
+            </div>
+          </div>
+
+          <div class="reports-container glass-panel">
+            <div class="reports-summary-tiles">
+              <div class="report-tile">
+                <span class="report-tile-title">Cumulative Month Revenue</span>
+                <span class="report-tile-val">EGP 1,420,800.00</span>
+              </div>
+              <div class="report-tile">
+                <span class="report-tile-title">Inventory Food Cost Total</span>
+                <span class="report-tile-val">EGP 392,140.80 (27.6%)</span>
+              </div>
+              <div class="report-tile">
+                <span class="report-tile-title">Labor &amp; Payroll Cost</span>
+                <span class="report-tile-val">EGP 214,000.00 (15.1%)</span>
+              </div>
+              <div class="report-tile">
+                <span class="report-tile-title">Estimated Net Gross Profit</span>
+                <span class="report-tile-val text-emerald">EGP 814,659.20 (57.3%)</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="pane-settings" class="module-pane">
+          <div class="pane-header-row">
+            <div>
+              <h2 class="pane-title">System Settings &amp; Multi-Branch Topology</h2>
+              <p class="pane-subtitle">Global tax compliance, receipt layout, hardware peripheral hooks.</p>
+            </div>
+            <button class="btn btn-primary" id="btn-save-settings">Save Node Configuration</button>
+          </div>
+
+          <div class="settings-grid">
+            <div class="glass-panel settings-card">
+              <h3 class="box-title">Restaurant Profile</h3>
+              <div class="form-group">
+                <label>Commercial Name</label>
+                <input type="text" id="set-rest-name" value="Maison 27 Bistro &amp; Roastery" />
+              </div>
+              <div class="form-group">
+                <label>Tax Registration Number (TRN)</label>
+                <input type="text" id="set-trn" value="EG-948-281-002" />
+              </div>
+              <div class="form-group">
+                <label>Primary Currency Code</label>
+                <input type="text" id="set-curr" value="EGP" />
+              </div>
+            </div>
+
+            <div class="glass-panel settings-card">
+              <h3 class="box-title">Fiscal &amp; Surcharge Rates</h3>
+              <div class="form-group">
+                <label>VAT Tax Rate (%)</label>
+                <input type="number" id="set-vat-rate" value="14" />
+              </div>
+              <div class="form-group">
+                <label>Dine-In Service Charge (%)</label>
+                <input type="number" id="set-service-rate" value="12" />
+              </div>
+              <div class="form-group">
+                <label>Kitchen Auto-Print Receipt</label>
+                <select id="set-autoprint" class="select-styled">
+                  <option value="true">Enabled (Direct Thermal)</option>
+                  <option value="false">Disabled (Paperless KDS)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <div id="view-customer-menu" class="customer-menu-viewport hidden">
+    <div class="menu-mobile-shell">
+      <header class="menu-top-bar">
+        <button class="btn-menu-back" id="btn-close-customer-menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        </button>
+        <div class="menu-brand">
+          <span class="menu-brand-name">Maison 27</span>
+          <span class="menu-table-sub">Order to Table #4 • New Cairo</span>
+        </div>
+        <button class="menu-cart-trigger" id="btn-open-menu-cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span class="cart-pill-count" id="customer-cart-counter">0</span>
+        </button>
+      </header>
+
+      <div class="customer-cat-ribbon" id="customer-cat-tabs">
+        <button class="c-cat-pill active" data-cat="ALL">All</button>
+        <button class="c-cat-pill" data-cat="Burgers">Burgers</button>
+        <button class="c-cat-pill" data-cat="Pizza">Pizza</button>
+        <button class="c-cat-pill" data-cat="Coffee">Coffee</button>
+        <button class="c-cat-pill" data-cat="Desserts">Desserts</button>
+      </div>
+
+      <div class="customer-catalog-list" id="customer-products-container">
+        </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay hidden" id="modal-checkout">
+    <div class="modal-card glass-panel">
+      <div class="modal-header">
+        <h3 class="modal-title">Order Settlement</h3>
+        <button class="modal-close-btn" onclick="UIModal.close('modal-checkout')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="settle-amount-highlight">
+          <span class="label">Amount Due:</span>
+          <span class="due-val" id="settle-grand-total">EGP 0.00</span>
+        </div>
+
+        <div class="payment-method-tabs" id="pay-methods">
+          <button class="pay-btn active" data-method="Cash">Cash</button>
+          <button class="pay-btn" data-method="Visa">Visa / Debit</button>
+          <button class="pay-btn" data-method="Mastercard">Mastercard</button>
+          <button class="pay-btn" data-method="Wallet">InstaPay / Mobile</button>
+        </div>
+
+        <div class="form-group cash-tendered-box" id="cash-tendered-group">
+          <label>Tendered Cash Given:</label>
+          <input type="number" id="cash-tendered-input" placeholder="Enter given amount" />
+          <div class="change-due-banner">Change to return: <b id="cash-change-return">EGP 0.00</b></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="UIModal.close('modal-checkout')">Cancel</button>
+        <button class="btn btn-primary btn-glow" id="btn-finalize-payment">Confirm Payment &amp; Print Receipt</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay hidden" id="modal-receipt">
+    <div class="receipt-paper-card">
+      <div class="receipt-cut-line"></div>
+      <div class="receipt-content" id="printable-receipt">
+        <div class="receipt-center">
+          <h2 class="receipt-brand">MAISON 27</h2>
+          <p class="receipt-sub">Bistro &amp; Specialty Roastery</p>
+          <p class="receipt-meta">New Cairo — 5th Settlement</p>
+          <p class="receipt-meta">TRN: 948-281-002</p>
+          <div class="receipt-dashed"></div>
+        </div>
+
+        <div class="receipt-row-split">
+          <span id="rcpt-order-id">ORDER #1042</span>
+          <span id="rcpt-date">2026-09-02 21:30</span>
+        </div>
+        <div class="receipt-row-split">
+          <span id="rcpt-table-id">Table: T-03</span>
+          <span id="rcpt-cashier-id">Server: M. Kamel</span>
+        </div>
+        <div class="receipt-dashed"></div>
+
+        <div class="receipt-items-table" id="rcpt-items-list"></div>
+
+        <div class="receipt-dashed"></div>
+        <div class="receipt-row-split">
+          <span>Subtotal:</span>
+          <span id="rcpt-subtotal">EGP 0.00</span>
+        </div>
+        <div class="receipt-row-split">
+          <span>VAT (14%):</span>
+          <span id="rcpt-vat">EGP 0.00</span>
+        </div>
+        <div class="receipt-row-split">
+          <span>Service (12%):</span>
+          <span id="rcpt-service">EGP 0.00</span>
+        </div>
+        <div class="receipt-row-split rcpt-total-line">
+          <b>TOTAL PAID:</b>
+          <b id="rcpt-total">EGP 0.00</b>
+        </div>
+        <div class="receipt-row-split">
+          <span>Payment Method:</span>
+          <span id="rcpt-method">Visa</span>
+        </div>
+        <div class="receipt-dashed"></div>
+        <div class="receipt-center">
+          <div class="qr-placeholder">
+            <div class="simulated-qr"></div>
+          </div>
+          <p class="receipt-footer-text">Thank you for dining with Maison 27</p>
+          <p class="receipt-footer-sub">Powered by RESTOCORE OS</p>
+        </div>
+      </div>
+      <div class="receipt-actions">
+        <button class="btn btn-secondary" onclick="UIModal.close('modal-receipt')">Close</button>
+        <button class="btn btn-primary" onclick="window.print()">Print Thermal Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
